@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon icons -->
+    <link href="../static/images/favicon.png" rel="shortcut icon">
+
+    <!-- All CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Home</title>
+  </head>
+  <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+
+    <!-- Header strat -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Site logo -->
+          <a href="home-01.html" class="logo">
+            <img src="../static/images/logo.png" alt="">
+          </a>
+          <a href="javascript:void(0);" id="mobile-menu-toggler">
+            <i class="ti-align-justify"></i>
+          </a>
+          <ul class="navbar-nav">
+            <li class="has-menu-child current-menu-item">
+              <a href="javascript:void(0);">Home</a>
+              <ul class="sub-menu">
+                <li><a href="home-01.html">Home 01</a></li>
+                <li><a href="home-02.html">Home 02</a></li>
+                <li><a href="home-03.html">Home 03</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li class="has-menu-child">
+              <a href="javascript:void(0);">Courses</a>
+              <ul class="sub-menu">
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="course-details.html">Course Details</a></li>
+              </ul>
+            </li>
+            <li class="has-menu-child">
+              <a href="#">Blog</a>
+              <ul class="sub-menu">
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog-details.html">Blog Details</a></li>
+              </ul>
+            </li>
+            <li class="has-menu-child">
+              <a href="#">Events</a>
+              <ul class="sub-menu">
+                <li><a href="events.html">Events</a></li>
+                <li><a href="event-details.html">event Details</a></li>
+              </ul>
+            </li>
+            <li class="has-menu-child">
+              <a href="javascript:void(0);">Pages</a>
+              <ul class="sub-menu">
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign up</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header strat -->
+
+    <!-- Slider section start -->
+    <section class="slider-banner p-0">
+      <div class="slider-carousel owl-carousel">
+        <div class="slide slide-3" style="background-image: url(../static/images/slider/3.jpg);"></div>
+        <div class="slide slide-1" style="background-image: url(../static/images/slider/2.jpg);"></div>
+        <div class="slide slide-2" style="background-image: url(../static/images/slider/1.jpg);"></div>
+      </div>
+      <div class="container">
+        <div class="col-md-11 slider-content m-auto text-center">
+          <h2><span>读万卷书，行万里路。</span> </h2>
+          <h4 align="right" class="col-lg-10" style="color: white">刘彝</h4>
+          <form class="search-form" action="#">
+            <select name="country">
+              <option>课程类目</option>
+                {% for className in classMenu %}
+                  <option value="usa">{{ className }}</option>
+                {% endfor %}
+            </select>
+            <input type="text" placeholder="Enter a Subject">
+            <button type="submit"><i class="ti-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Slider section end -->
+
+    <!-- Feature Box section start -->
+    <section class="featureBox">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="sfBox">
+              <i class="fas fa-drafting-compass"></i>
+              <strong>100,000 online courses</strong>
+              <span>Explore a variety of fresh topics</span>
+            </div>
+          </div>
+          <div class="col-md-4 d-md-flex justify-content-center">
+            <div class="sfBox">
+              <i class="far fa-user-circle"></i>
+              <strong>Expert instruction</strong>
+              <span>Find the right instructor for you</span>
+            </div>
+          </div>
+          <div class="col-md-4 d-md-flex justify-content-md-end">
+            <div class="sfBox mb-0">
+              <i class="fas fa-history"></i>
+              <strong>Lifetime access</strong>
+              <span>Learn on your schedule</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Feature Box section end -->
+
+    <!-- Categories sectiion start -->
+    <section class="categories bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-9 m-auto text-center">
+            <div class="sec-heading">
+              <span class="tagline">Top categories</span>
+              <h3 class="sec-title">选择您的学习类别</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for className in classMenu %}
+            {% if loop.index <= 8 %}
+              <div class="col-md-3 col-sm-6">
+
+                    <a href="/more_class?classname={{className}}" class="icon-list-block">
+                      <img src="../static/images/icons/categories/{{ loop.index }}.png" alt="">
+
+                      <span>{{className}}</span>
+                    </a>
+              </div>
+            {% endif  %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <!-- Categories sectiion end -->
+
+    <!-- Courses section start -->
+    <section class="courses">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-9 m-auto text-center">
+            <div class="sec-heading">
+              <h3 class="sec-title">热门课程</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="course-caro owl-carousel">
+            {% for classDataOne in classOneDatas %}
+              <div class="col-12">
+                <div class="single-course">
+                  <figure class="course-thumb">
+                    <img src="../static/images/class/{{classDataOne.imgSrc}}" alt="" class="class-img" style="width: 350px; height: 350px">
+                    <strong class="ribbon">￥{{classDataOne.price}}.00</strong>
+                  </figure>
+                  <div class="course-content">
+                    <h3><a href="course-details.html">{{classDataOne.title}}</a></h3>
+                    <p>
+                      {{classDataOne.name}}
+                    </p>
+                    <div class="enroll">
+                      <div class="ratings">
+                        <span class="total-students"><i class="ti-user"></i> > 100 Students</span>
+                        <span class="enrolled">{{classDataOne.remark}}</span>
+                      </div>
+                      <div class="course-meta text-right">
+                        <!-- <strong class="course-price">$29.00</strong> -->
+                        <a href="https://bigbay.qingclass.com/mall?pageKey={{classDataOne.pageKey}}&distributorId=7953334" class="btn btn-filled">Show Detail</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Courses section end -->
+
+    <!-- Funfacts start -->
+    <section class="funfacts-02 bg-light">
+      <div class="container">
+        <ul>
+          <li>
+            <span>291</span>
+            <p>Amazing Courses</p>
+          </li>
+          <li>
+            <span>38</span>
+            <p>talented instructors</p>
+          </li>
+          <li>
+            <span>3940</span>
+            <p>Skilled Students</p>
+          </li>
+          <li>
+            <span>14</span>
+            <p>categories</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- Funfacts end -->
+
+
+    <!-- Testimonial section start -->
+    <section class="testimonial">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-9 m-auto text-center">
+            <div class="sec-heading">
+              <span class="tagline text-white">Testimonials</span>
+              <h3 class="sec-title text-white">扫描下方二维码，咨询更多课程</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <img class="col-lg-4 col-md-12 m-auto" src="../static/images/7953334.jpg" style="width: 50%; height: auto">
+        </div>
+      </div>
+    </section>
+    <!-- Testimonial section end -->
+
+    <!-- Call to action section start -->
+    <section class="callto-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 m-auto text-center">
+            <h3>Newsletter Subscription</h3>
+            <p>Get updated with latest news</p>
+            <form class="newsletter" action="#">
+            <input type="text" placeholder="Enter your Email">
+            <button type="submit"><i class="ti-location-arrow"></i>Subscribe</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Call to action section end -->
+
+    <!-- Footer strat -->
+    <footer class="footer">
+      <div class="foo-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="widget widget-navigation">
+                <h4 class="widget-title">Information for</h4>
+                <ul>
+                  <li><a href="#">Prospective undergraduates</a></li>
+                  <li><a href="#">Prospective graduate students</a></li>
+                  <li><a href="#">Businesses/Partnerships</a></li>
+                  <li><a href="#">Visitors/Tourists</a></li>
+                  <li><a href="#">Parliamentarians</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="widget widget-navigation">
+                <h4 class="widget-title">Quick Links</h4>
+                <ul>
+                  <li><a href="#">Contact Searches</a></li>
+                  <li><a href="#">Jobs and Vacancies</a></li>
+                  <li><a href="#">University images</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="widget widget-navigation">
+                <h4 class="widget-title">Information About</h4>
+                <ul>
+                  <li><a href="#">Strategic Plan</a></li>
+                  <li><a href="#">Fees and Funding</a></li>
+                  <li><a href="#">Museums and collections</a></li>
+                  <li><a href="#">Statement on Modern Slavery</a></li>
+                  <li><a href="#">Data privacy / GDPR</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="widget widget-navigation">
+                <h4 class="widget-title">Security Brand</h4>
+                <ul>
+                  <li><a href="#">Privacy Statement</a></li>
+                  <li><a href="#">Report Copyright Infringement</a></li>
+                  <li><a href="#">Report Security Issue</a></li>
+                  <li><a href="#">Trademark Notice</a></li>
+                  <li><a href="#">Access Control</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="foo-btm">
+        <div class="container">
+          <p class="copyright">Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+        </div>
+      </div>
+
+    </footer>
+    <!-- Footer end -->
+
+    <!-- JS -->
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/jquery-ui.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/jquery.countdown.min.js"></script>
+    <script src="../static/js/jquery.nice-select.min.js"></script>
+    <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyCxYLtelXg0PGjeTiFDtlN7nrH_47buDWo"></script>
+    <script src="../static/js/scripts.js"></script>
+  </body>
+</html>
