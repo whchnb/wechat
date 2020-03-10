@@ -6,18 +6,19 @@ import json
 import requests
 
 from wechat import templates
-#from urllib.parse import urlencode
-#from wechat.config import sysConfig
-#from wechat.config import contentConfig
-#from wechat.chatManage.reply import Reply
-#from wechatpy.utils import check_signature
-#from wechat.manage.changeMenu import CustomMenu
+from urllib.parse import urlencode
+from wechat.config import sysConfig
+from wechat.config import contentConfig
+from wechat.chatManage.reply import Reply
+from wechatpy.utils import check_signature
+from wechat.manage.changeMenu import CustomMenu
 from flask import Flask, request, redirect, jsonify, render_template
-#from wechatpy.exceptions import InvalidSignatureException
+from wechatpy.exceptions import InvalidSignatureException
 
 
 app = Flask(__name__)
 app.config.from_object(templates)
+
 
 def getClassData():
     path = '/root/wechat/wechat/static/classes.json'
@@ -35,6 +36,7 @@ def getClassData():
                 classOneDatas.append(cls)
                 continue
     return classMenu, classOneDatas, classDatas
+classMenu, classOneDatas, classDatas = getClassData()
 
 # 微信公众号登录
 @app.route('/', methods=['GET', 'POST'])
